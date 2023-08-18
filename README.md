@@ -1,1 +1,1 @@
-### Посмотрите мой сайт[https://22maksim.github.io/MY-tik-tak/build/]
+## Запустите игру[https://22maksim.github.io/MY-tik-tak/build/]
