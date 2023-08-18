@@ -1,0 +1,15 @@
+.elemButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 0 1px 0;
+	width: 45px;
+	height: 45px;
+	background-color: #c4e0d7;
+	font-size: medium;
+}
+
+.elemButton:hover {
+	background-color: #966161;
+	cursor: pointer;
+}
