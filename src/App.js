@@ -8,14 +8,15 @@ function App() {
 	const [totalMove, setTotalMove] = useState(0);
 	const current = totalMove % 2 === 0 ? 'X' : 'O';
 	const playyerWinner = totalMove % 2 ? 'X' : 'O'
-	const showText = calcWinner(resultMove) ? `Победил игрок: ${playyerWinner}` : `Следующий ход ${current}`
+	const playWin = calcWinner(resultMove)
+	const showText = playWin ? `Победил игрок: ${playyerWinner}` : totalMove === 9 ? `Ничья` : `Следующий ход ${current}`
 
 
 	const restart = () => {
 		setResultMove(Array(9).fill(null))
 		setTotalMove(0)
 	}
-	const buttonRestart = calcWinner(resultMove) ? (<ButtonRestart restart={restart} />) : undefined;
+	const buttonRestart = playWin || totalMove === 9 ? (<ButtonRestart restart={restart} />) : undefined
 
 	const setCurMove = (data) => {
 		let result = [...resultMove]
@@ -30,7 +31,7 @@ function App() {
 				<h3>{showText}</h3>
 				<div>{buttonRestart}</div>
 				<div className='showField' >
-					<PlayingField resultMove={resultMove} setCurMove={setCurMove} />
+					<PlayingField resultMove={resultMove} setCurMove={setCurMove} totalMove={totalMove} />
 				</div>
 			</div>
 		</>

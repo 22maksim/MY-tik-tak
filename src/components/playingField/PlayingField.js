@@ -3,8 +3,8 @@ import styles from './playingField.module.css'
 import Button from '../button/Button'
 import calcWinner from '../calculationWinner/calcWinner'
 
-const PlayingField = ({ resultMove, setCurMove }) => {
-	if (calcWinner(resultMove)) {
+const PlayingField = ({ resultMove, setCurMove, totalMove }) => {
+	if (calcWinner(resultMove) || totalMove === 9) {
 		return
 	}
 
@@ -34,6 +34,7 @@ const PlayingField = ({ resultMove, setCurMove }) => {
 PlayingField.propTypes = {
 	resultMove: PropTypes.array,
 	setCurtMove: PropTypes.func,
+	totalMove: PropTypes.number,
 }
 
 export default PlayingField
